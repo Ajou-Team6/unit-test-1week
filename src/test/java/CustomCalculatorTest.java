@@ -14,8 +14,8 @@ public class CustomCalculatorTest {
     @Test
     public void add() {
         customCalculator = new CustomCalculator();
-        int result = customCalculator.add(10,15);
-        assertThat(result, is(10+15));
+        int result = customCalculator.add(300,250);
+        assertThat(result, is(300+250));
         System.out.println("Add result :: " + result);
     }
 
@@ -33,8 +33,8 @@ public class CustomCalculatorTest {
     @Test
     public void subtract() {
         customCalculator = new CustomCalculator();
-        int result = customCalculator.subtract(23,10);
-        assertThat(result, is(23-10));
+        int result = customCalculator.subtract(222,100);
+        assertThat(result, is(222-100));
         System.out.println("Subtract result :: " + result);
     }
 
@@ -54,8 +54,8 @@ public class CustomCalculatorTest {
     @Test
     public void multiply() {
         customCalculator = new CustomCalculator();
-        int result = customCalculator.multiply(5,9);
-        assertThat(result, is(5*9));
+        int result = customCalculator.multiply(776,432);
+        assertThat(result, is(776*432));
         System.out.println("Multiply result :: " + result);
     }
 
@@ -73,8 +73,8 @@ public class CustomCalculatorTest {
     @Test
     public void divide() {
         customCalculator = new CustomCalculator();
-        int result = customCalculator.divide(25,5);
-        assertThat(result, is(25/5));
+        int result = customCalculator.divide(110,5);
+        assertThat(result, is(110/5));
         System.out.println("Divide result :: " + result);
     }
 

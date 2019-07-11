@@ -124,6 +124,11 @@ public class UpperCaseCounterTest {
         new ArrayList<Object>().get(0);
         System.out.println("IndexOutofBoundsExceptionWhenGetZeroIndex Test Passed!");
     }
+    @Test(expected = ArithmeticException.class)
+    public void shouldThrowExceptionWhenDivideNumByZero() {
+        int A = 10/0;
+        System.out.println("shouldThrowExceptionWhenDivideNumByZero Test Passed!");
+    }
 
     // 주호
     @Test(expected = IndexOutOfBoundsException.class)

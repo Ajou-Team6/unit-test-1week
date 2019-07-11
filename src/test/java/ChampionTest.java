@@ -1,5 +1,6 @@
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.internal.matchers.NotNull;
 
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
@@ -58,6 +59,8 @@ public class ChampionTest {
         // 종인
         List<String> emptyList = new ArrayList<>();
         assertThat(emptyList, empty());
+        emptyList.add("");
+        assertThat(emptyList.get(0), isEmptyString());
 
         // 주호
         List<String> emptyListByJuho = new ArrayList<>();
@@ -83,6 +86,8 @@ public class ChampionTest {
         // 종인
         String lck = null;
         assertThat(lck, nullValue());
+        lck = "Hi";
+        assertThat(lck, notNullValue());
 
         // 주호
         String NullTestByJuho = null;
@@ -101,13 +106,14 @@ public class ChampionTest {
         assertThat(sampleString1, anyOf(startsWith(startString), containsString(endString))); // OR
         assertThat(sampleString2, is(endsWith(endString)));
         assertThat(sampleString1, is(endsWith("Focus")));
+        assertThat(sampleString2, is(containsString("yer p")));
 
         // 주호
         String Avengers1 = "Captain America";
         String Avengers2 = "Captain Iron Man";
         String startString2 = "Captain";
         String endString2 = "Man";
-        assertThat(Avengers1, anyOf(startsWith(startString2), containsString(endString2))); // OR
+        assertThat(Avengers1, anyOf(startsWith(startString2), containsString(endString2)));
         assertThat(Avengers2, is(endsWith(endString2)));
         assertThat(Avengers1, is(endsWith("America")));
 
@@ -131,6 +137,7 @@ public class ChampionTest {
     public void shouldNotErrorGetReference() {
         // 종인
         assertThat(championList.get(2), anything()); // 값만 가져올 수 있으면 무슨 값이든 상관 없다.
+        assertThat(championList.get(2), anyOf(notNullValue()));
 
         // 주호
         assertThat(championListByJuho.get(4), anything());
@@ -195,7 +202,7 @@ public class ChampionTest {
     public void shouldHaveSamePropertyAndValue() {
         // 종인
         List<String> championNames1 = Arrays.asList("루시안", "애쉬", "렉사이", "갈리오", "모르가나", "블라디미르");
-        List<String> championNames2 = Arrays.asList("루시안", "애쉬", "렉사이", "갈리오", "모르가나", "블라디미르");
+        List<String> championNames2 = Arrays.asList("루시안", "애쉬");
         assertThat(championNames1, samePropertyValuesAs(championNames2));
 //        assertThat(championNames1, samePropertyValuesAs(championList));
 
