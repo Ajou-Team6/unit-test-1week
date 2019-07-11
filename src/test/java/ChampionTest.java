@@ -141,6 +141,15 @@ public class ChampionTest {
         assertThat(Avengers2, is(endsWith(endString2)));
         assertThat(Avengers1, is(endsWith("America")));
 
+        //명수
+        String player1 = "Thierry Henry";
+        String player2 = "Killian Mbappe";
+        String startPlayerString1 = "Thierry";
+        String endPlayerString2 = "Mbappe";
+        assertThat(player1, anyOf(startsWith(startPlayerString1), containsString(endPlayerString2)));
+        assertThat(player2, anyOf(startsWith(startPlayerString1), containsString(endPlayerString2)));
+        assertThat(player1, is(startsWith(startPlayerString1)));
+        assertThat(player2, is(endsWith(endPlayerString2)));
 
     }
 
@@ -154,6 +163,10 @@ public class ChampionTest {
         // 주호
         assertThat(1.5, closeTo(2, 0.7));
         assertThat(-1.5, closeTo(-3, 2));
+
+        //명수
+        assertThat(7.18,closeTo(7,0.2));
+        assertThat(1.22,closeTo(1,0.5));
     }
 
     //anything 테스트
@@ -164,6 +177,9 @@ public class ChampionTest {
 
         // 주호
         assertThat(championListByJuho.get(4), anything());
+
+        // 명수
+        assertThat(championListByMyungsoo.get(1),anything());
     }
 
     //객체 크기 검증 테스트 hasSize
@@ -178,6 +194,12 @@ public class ChampionTest {
         assertFalse(championList.size() == 4);
         assertThat(championList.size(), not(4));
         assertThat(championList, hasSize(5));
+
+        // 명수
+        assertFalse(championListByMyungsoo.size()==3);
+        assertThat(championListByMyungsoo.size(),not(3));
+        assertThat(championListByMyungsoo,hasSize(5));
+
     }
 
     //서폿 챔피언은 타릭이어야 한다라는 조건으로 테스트 코드 작성
