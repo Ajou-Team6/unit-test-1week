@@ -82,6 +82,9 @@ public class ChampionTest {
         List<String> emptyListByJuho = new ArrayList<>();
         assertThat(emptyListByJuho, empty());
 
+        //명수
+        List<String> emptyListByMyungsoo = new ArrayList<>();
+        assertThat(emptyListByMyungsoo, empty());
     }
 
     //notNullValue 활용한 테스트
@@ -94,6 +97,10 @@ public class ChampionTest {
         // 주호
         String NullTestByJuho = "Test";
         assertThat(NullTestByJuho, notNullValue());
+
+        //
+        String nullTestByMyungsoo = "value";
+        assertThat(nullTestByMyungsoo, notNullValue());
     }
 
     //nullValue 활용한 테스트
@@ -106,6 +113,10 @@ public class ChampionTest {
         // 주호
         String NullTestByJuho = null;
         assertThat(NullTestByJuho, nullValue());
+
+        //명수
+        String nullTestByMyungsoo = null;
+        assertThat(nullTestByMyungsoo, nullValue());
     }
 
 
