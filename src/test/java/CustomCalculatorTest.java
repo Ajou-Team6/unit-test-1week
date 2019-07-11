@@ -28,6 +28,15 @@ public class CustomCalculatorTest {
         System.out.println("Add result :: " + result);
     }
 
+    //명수(더하기 테스트)
+    @Test
+    public void addByMyungsoo(){
+        customCalculator = new CustomCalculator();
+        int result = customCalculator.add(14,14);
+        assertThat(result, is(14+14));
+        System.out.println("Add Result :: " + result);
+    }
+
     //빼기 테스트 작성
     // 종인
     @Test
@@ -47,7 +56,14 @@ public class CustomCalculatorTest {
         System.out.println("Subtract result :: " + result);
     }
 
-
+    //명수(빼기 테스트)
+    @Test
+    public void subtractByMyungsoo(){
+        customCalculator = new CustomCalculator();
+        int result = customCalculator.subtract(14,14);
+        assertThat(result, is(14-14));
+        System.out.println("Subtract Result :: " + result);
+    }
 
     //곱하기 테스트 작성
     // 종인
@@ -68,6 +84,15 @@ public class CustomCalculatorTest {
         System.out.println("Multiply result :: " + result);
     }
 
+    //명수(곱하기 테스트)
+    @Test
+    public void multiByMyungsoo(){
+        customCalculator = new CustomCalculator();
+        int result = customCalculator.multiply(14,14);
+        assertThat(result, is(14*14));
+        System.out.println("Multiply Result :: " + result);
+    }
+
     //나누기 테스트 작성
     // 종인
     @Test
@@ -85,5 +110,14 @@ public class CustomCalculatorTest {
         int result = customCalculator.divide(3333,1111);
         assertThat(result, is(9-6));
         System.out.println("Divide result :: " + result);
+    }
+
+    //명수(나누기 테스트)
+    @Test
+    public void divideByMyungsoo(){
+        customCalculator = new CustomCalculator();
+        int result = customCalculator.divide(14,14);
+        assertThat(result, is(14/14));
+        System.out.println("Divide Result :: " + result);
     }
 }
