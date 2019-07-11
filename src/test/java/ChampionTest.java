@@ -18,6 +18,9 @@ public class ChampionTest {
     // 주호
     private List<Champion> championListByJuho = new ArrayList<Champion>();
 
+    // 명수
+    private List<Champion> championListByMyungsoo = new ArrayList<>();
+
     @Before
     public void setUp() {
 
@@ -35,6 +38,13 @@ public class ChampionTest {
         Champion adcChampByJuho = new Champion("징크스", "바텀");
         Champion supportChampByJuho = new Champion("탐켄치", "바텀");
 
+        //명수
+        Champion topChampionByMyungsoo = new Champion("가렌", "탑");
+        Champion jungleChampionByMyungsoo = new Champion("다이애나", "정글");
+        Champion midChampionByMyungsoo = new Champion("갈리오", "미드");
+        Champion adcChampionByMyungsoo = new Champion("소라카", "바텀");
+        Champion supportChampionByMyungsoo = new Champion("라칸", "바텀");
+
 
         // 종인
         championList.add(topChamp);
@@ -49,6 +59,15 @@ public class ChampionTest {
         championListByJuho.add(midChampByJuho);
         championListByJuho.add(adcChampByJuho);
         championListByJuho.add(supportChampByJuho);
+
+
+        //명수
+        championListByMyungsoo.add(topChampionByMyungsoo);
+        championListByMyungsoo.add(jungleChampionByMyungsoo);
+        championListByMyungsoo.add(midChampionByMyungsoo);
+        championListByMyungsoo.add(adcChampionByMyungsoo);
+        championListByMyungsoo.add(supportChampionByMyungsoo);
+
 
     }
 
