@@ -216,6 +216,13 @@ public class ChampionTest {
         assertThat("알리스타", is(supportChampByJuho.getName()));
         assertThat("알리스타", is(equalTo(supportChampByJuho.getName())));
         assertThat("알리스타", equalTo(supportChampByJuho.getName()));
+
+        // 명수
+        Champion supportChampByMyungsoo = new Champion("럭스","바텀");
+        assertThat("럭스",is(supportChampByMyungsoo.getName()));
+        assertThat("럭스",is(equalTo(supportChampByMyungsoo.getName())));
+        assertThat("럭스",equalTo(supportChampByMyungsoo.getName()));
+
     }
 
     //hasProperty 활용하여 속성이 포함되어 있는지 테스트
@@ -228,6 +235,10 @@ public class ChampionTest {
         // 주호
         assertThat(championListByJuho.get(4), hasProperty("position"));
         assertThat(championListByJuho.get(4), hasProperty("position", equalTo("바텀")));
+
+        // 명수
+        assertThat(championListByMyungsoo.get(2), hasProperty("position"));
+        assertThat(championListByMyungsoo.get(2), hasProperty("position", equalTo("미드")));
     }
 
     //hasToString 활용 테스트
@@ -240,6 +251,10 @@ public class ChampionTest {
         // 주호
         List<String> champListNamesByJuho = Arrays.asList("징크스", "케이틀린", "시비르", "카이사", "이즈리얼");
         assertThat(champListNamesByJuho.get(0), hasToString("징크스"));
+
+        // 명수
+        List<String> champListNamesByMyungsoo = Arrays.asList("다이애나", "야스오", "갈리아", "나미", "갬플링크");
+        assertThat(champListNamesByMyungsoo.get(3), hasToString("나미"));
     }
 
     //property와 value가 같은지 테스트
@@ -255,6 +270,11 @@ public class ChampionTest {
         List<String> championNames1ByJuho = Arrays.asList("징크스", "케이틀린", "시비르", "카이사", "이즈리얼");
         List<String> championNames2ByJuho = Arrays.asList("징크스");
         assertThat(championNames1ByJuho, samePropertyValuesAs(championNames2ByJuho));
+
+        //명수
+        List<String> championNames1ByMyungsoo = Arrays.asList("다이애나", "야스오", "갈리아", "나미", "갬플링크");
+        List<String> championNames2ByMyungsoo = Arrays.asList("갬플링크");
+        assertThat(championNames1ByMyungsoo, samePropertyValuesAs(championNames2ByMyungsoo));
     }
 
     //탑 챔피언은 다리우스여야 한다라는 조건으로 테스트 코드 작성, stream 활용예
@@ -279,6 +299,15 @@ public class ChampionTest {
         String champNameByJuho = filterdChampionByJuho.get().getName();
         assertTrue(champNameByJuho.equals("조이"));
         assertThat("조이", is(champNameByJuho));
+
+        // 종인
+        Optional<Champion> filterdChampionByMyungsoo = championListByMyungsoo.stream()
+                .filter(c -> c.getPosition().equals("탑"))
+                .findFirst();
+        System.out.println("Result: " + filterdChampion);
+        String champNameByMyungsoo = filterdChampionByMyungsoo.get().getName();
+        assertTrue(champNameByMyungsoo.equals("가렌"));
+        assertThat("가렌", is(champNameByMyungsoo));
 
     }
 
