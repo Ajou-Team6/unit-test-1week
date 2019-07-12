@@ -22,6 +22,9 @@ public class ChampionTest {
     // 명수
     private List<Champion> championListByMyungsoo = new ArrayList<>();
 
+    // 연호
+    private List<Champion> championListByYounho = new ArrayList<Champion>();
+
     @Before
     public void setUp() {
 
@@ -46,7 +49,6 @@ public class ChampionTest {
         Champion adcChampionByMyungsoo = new Champion("소라카", "바텀");
         Champion supportChampionByMyungsoo = new Champion("라칸", "바텀");
 
-
         // 종인
         championList.add(topChamp);
         championList.add(jungleChamp);
@@ -61,7 +63,6 @@ public class ChampionTest {
         championListByJuho.add(adcChampByJuho);
         championListByJuho.add(supportChampByJuho);
 
-
         //명수
         championListByMyungsoo.add(topChampionByMyungsoo);
         championListByMyungsoo.add(jungleChampionByMyungsoo);
@@ -69,7 +70,22 @@ public class ChampionTest {
         championListByMyungsoo.add(adcChampionByMyungsoo);
         championListByMyungsoo.add(supportChampionByMyungsoo);
 
+    }
 
+    // 연호
+    @Before
+    public void setUpByYounho() {
+        Champion topChampionByYounho = new Champion("문도박사", "탑");
+        Champion jungleChampionByYounho = new Champion("그레이브즈", "정글");
+        Champion midChampionByYounho = new Champion("티모", "미드");
+        Champion adcChampionByYounho = new Champion("이즈리얼", "바텀");
+        Champion supportChampionByYounho = new Champion("블리츠크랭크", "바텀");
+
+        championListByYounho.add(topChampionByYounho);
+        championListByYounho.add(jungleChampionByYounho);
+        championListByYounho.add(midChampionByYounho);
+        championListByYounho.add(adcChampionByYounho);
+        championListByYounho.add(supportChampionByYounho);
     }
 
     //List<String>을 생성하고 값이 비어 있는지를 테스트 empty()
@@ -88,6 +104,14 @@ public class ChampionTest {
         //명수
         List<String> emptyListByMyungsoo = new ArrayList<>();
         assertThat(emptyListByMyungsoo, empty());
+
+    }
+
+    // 연호
+    @Test
+    public void givenCollectionWhenEmptyCorrectByYounho() {
+        List<String> emptyListByYounho = new ArrayList<>();
+        assertThat(emptyListByYounho, empty());
     }
 
     //notNullValue 활용한 테스트
@@ -101,9 +125,17 @@ public class ChampionTest {
         String NullTestByJuho = "Test";
         assertThat(NullTestByJuho, notNullValue());
 
-        //
+        // 명수
         String nullTestByMyungsoo = "value";
         assertThat(nullTestByMyungsoo, notNullValue());
+
+    }
+
+    // 연호
+    @Test
+    public void notNullCheckByYounho() {
+        String nullTestByYounho = "LOL";
+        assertThat(nullTestByYounho, notNullValue());
     }
 
     //nullValue 활용한 테스트
@@ -122,6 +154,14 @@ public class ChampionTest {
         //명수
         String nullTestByMyungsoo = null;
         assertThat(nullTestByMyungsoo, nullValue());
+
+    }
+
+    // 연호
+    @Test
+    public void givenStringWhenNullIsCorrectByYounho() {
+        String nullTestByYounho = null;
+        assertThat(nullTestByYounho, nullValue());
     }
 
 
@@ -159,6 +199,19 @@ public class ChampionTest {
 
     }
 
+    //연호
+    @Test
+    public void testForRelatedStringByYounho() {
+        String player3 = "Virgil Van Dijk";
+        String player4 = "Mohamed Salah";
+        String startPlayerString3 = "Virgil";
+        String endPlayerString4 = "Salah";
+        assertThat(player3, anyOf(startsWith(startPlayerString3), containsString(endPlayerString4)));
+        assertThat(player4, anyOf(startsWith(startPlayerString3), containsString(endPlayerString4)));
+        assertThat(player3, is(startsWith(startPlayerString3)));
+        assertThat(player4, is(endsWith(endPlayerString4)));
+    }
+
     //부동소수점 범위 closeTo 테스트
     @Test
     public void testForFloatingPoint() {
@@ -175,6 +228,13 @@ public class ChampionTest {
         assertThat(1.22,closeTo(1,0.5));
     }
 
+    // 연호
+    @Test
+    public void testForFloatingPointByYounho() {
+        assertThat(10.4,closeTo(10.2,0.3));
+        assertThat(-24.21,closeTo(-25,0.8));
+    }
+
     //anything 테스트
     @Test
     public void shouldNotErrorGetReference() {
@@ -187,6 +247,13 @@ public class ChampionTest {
 
         // 명수
         assertThat(championListByMyungsoo.get(1),anything());
+    }
+
+    // 연호
+    @Test
+    public void shouldNotErrorGetReferenceByYounho() {
+        assertThat(championList.get(4), anything());
+        assertThat(championList.get(1), anyOf(notNullValue()));
     }
 
     //객체 크기 검증 테스트 hasSize
@@ -207,6 +274,14 @@ public class ChampionTest {
         assertThat(championListByMyungsoo.size(),not(3));
         assertThat(championListByMyungsoo,hasSize(5));
 
+    }
+
+    // 연호
+    @Test
+    public void shouldChampionCountFiveByYounho() {
+        assertFalse(championListByYounho.size()==3);
+        assertThat(championListByYounho.size(),not(3));
+        assertThat(championListByYounho,hasSize(5));
     }
 
     //서폿 챔피언은 타릭이어야 한다라는 조건으로 테스트 코드 작성
@@ -232,6 +307,16 @@ public class ChampionTest {
 
     }
 
+    // 연호
+    @Test
+    public void shouldSupportChampionIsBleachCrankByYounho() {
+        // 명수
+        Champion supportChampByYounho = new Champion("블리츠크랭크","바텀");
+        assertThat("블리츠크랭크",is(supportChampByYounho.getName()));
+        assertThat("블리츠크랭크",is(equalTo(supportChampByYounho.getName())));
+        assertThat("블리츠크랭크",equalTo(supportChampByYounho.getName()));
+    }
+
     //hasProperty 활용하여 속성이 포함되어 있는지 테스트
     @Test
     public void shouldHasPropertyPosition() {
@@ -248,6 +333,13 @@ public class ChampionTest {
         assertThat(championListByMyungsoo.get(2), hasProperty("position", equalTo("미드")));
     }
 
+    // 연호
+    @Test
+    public void shouldHasPropertyPositionByYounho() {
+        assertThat(championListByYounho.get(1), hasProperty("position"));
+        assertThat(championListByYounho.get(1), hasProperty("position", equalTo("정글")));
+    }
+
     //hasToString 활용 테스트
     @Test
     public void shouldHaveSomeChampName() {
@@ -262,6 +354,13 @@ public class ChampionTest {
         // 명수
         List<String> champListNamesByMyungsoo = Arrays.asList("다이애나", "야스오", "갈리아", "나미", "갬플링크");
         assertThat(champListNamesByMyungsoo.get(3), hasToString("나미"));
+    }
+
+    // 연호
+    @Test
+    public void shouldHaveSomeChampNameByYounho() {
+        List<String> champListNamesByYounho = Arrays.asList("문도박사", "그레이브즈", "티모", "블리츠크랭크", "케이틀린");
+        assertThat(champListNamesByYounho.get(0), hasToString("문도박사"));
     }
 
     //property와 value가 같은지 테스트
@@ -282,6 +381,14 @@ public class ChampionTest {
         List<String> championNames1ByMyungsoo = Arrays.asList("다이애나", "야스오", "갈리아", "나미", "갬플링크");
         List<String> championNames2ByMyungsoo = Arrays.asList("갬플링크");
         assertThat(championNames1ByMyungsoo, samePropertyValuesAs(championNames2ByMyungsoo));
+    }
+
+    // 연호
+    @Test
+    public void shouldHaveSamePropertyAndValueByYounho() {
+        List<String> championNames1ByYounho = Arrays.asList("문도박사", "그레이브즈", "티모", "블리츠크랭크", "케이틀린");
+        List<String> championNames2ByYounho = Arrays.asList("블리츠크랭크");
+        assertThat(championNames1ByYounho, samePropertyValuesAs(championNames2ByYounho));
     }
 
     //탑 챔피언은 다리우스여야 한다라는 조건으로 테스트 코드 작성, stream 활용예
@@ -316,6 +423,18 @@ public class ChampionTest {
         assertTrue(champNameByMyungsoo.equals("가렌"));
         assertThat("가렌", is(champNameByMyungsoo));
 
+    }
+
+    // 연호
+    @Test
+    public void shoudTopChampionIsMundoByYounho() {
+        Optional<Champion> filterdChampionByYounho = championListByYounho.stream()
+                .filter(c -> c.getPosition().equals("탑"))
+                .findFirst();
+        System.out.println("Result: " + filterdChampionByYounho);
+        String champNameByYounho = filterdChampionByYounho.get().getName();
+        assertTrue(champNameByYounho.equals("문도박사"));
+        assertThat("문도박사", is(champNameByYounho));
     }
 
 }

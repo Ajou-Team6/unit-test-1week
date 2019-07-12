@@ -37,6 +37,15 @@ public class CustomCalculatorTest {
         System.out.println("Add Result :: " + result);
     }
 
+    // 연호
+    @Test
+    public void addByYounho(){
+        customCalculator = new CustomCalculator();
+        int result = customCalculator.add(3323,2882);
+        assertThat(result, is(6205));
+        System.out.println("Add Result :: " + result);
+    }
+
     //빼기 테스트 작성
     // 종인
     @Test
@@ -62,6 +71,15 @@ public class CustomCalculatorTest {
         customCalculator = new CustomCalculator();
         int result = customCalculator.subtract(14,14);
         assertThat(result, is(14-14));
+        System.out.println("Subtract Result :: " + result);
+    }
+
+    // 연호
+    @Test
+    public void subtractByYounho(){
+        customCalculator = new CustomCalculator();
+        int result = customCalculator.subtract(23,10);
+        assertThat(result, is(13));
         System.out.println("Subtract Result :: " + result);
     }
 
@@ -93,6 +111,15 @@ public class CustomCalculatorTest {
         System.out.println("Multiply Result :: " + result);
     }
 
+    // 연호
+    @Test
+    public void multiByYounho() {
+        customCalculator = new CustomCalculator();
+        int result = customCalculator.multiply(5, 9);
+        assertThat(result, is(45));
+        System.out.println("Multiply Result :: " + result);
+    }
+
     //나누기 테스트 작성
     // 종인
     @Test
@@ -118,6 +145,15 @@ public class CustomCalculatorTest {
         customCalculator = new CustomCalculator();
         int result = customCalculator.divide(14,14);
         assertThat(result, is(14/14));
+        System.out.println("Divide Result :: " + result);
+    }
+
+    // 연호
+    @Test
+    public void divideByYounho(){
+        customCalculator = new CustomCalculator();
+        int result = customCalculator.divide(25, 5);
+        assertThat(result, is(5));
         System.out.println("Divide Result :: " + result);
     }
 }
