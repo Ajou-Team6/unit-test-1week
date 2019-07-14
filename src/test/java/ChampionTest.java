@@ -89,22 +89,27 @@ public class ChampionTest {
     }
 
     //List<String>을 생성하고 값이 비어 있는지를 테스트 empty()
+    // 종인
     @Test
-    public void givenCollectionWhenEmptyCorrect() {
-        // 종인
+    public void givenCollectionWhenEmptyCorrectByJongin() {
         List<String> emptyList = new ArrayList<>();
         assertThat(emptyList, empty());
         emptyList.add("");
         assertThat(emptyList.get(0), isEmptyString());
+    }
 
-        // 주호
-        List<String> emptyListByJuho = new ArrayList<>();
-        assertThat(emptyListByJuho, empty());
+    // 주호
+    @Test
+    public void givenCollectionWhenEmptyCorrectByJuho() {
+        List<String> emptyListByYounho = new ArrayList<>();
+        assertThat(emptyListByYounho, empty());
+    }
 
-        //명수
-        List<String> emptyListByMyungsoo = new ArrayList<>();
-        assertThat(emptyListByMyungsoo, empty());
-
+    // 명수
+    @Test
+    public void givenCollectionWhenEmptyCorrectByMyungsoo() {
+        List<String> emptyListByYounho = new ArrayList<>();
+        assertThat(emptyListByYounho, empty());
     }
 
     // 연호
@@ -115,20 +120,25 @@ public class ChampionTest {
     }
 
     //notNullValue 활용한 테스트
+    // 종인
     @Test
-    public void notNullCheck() {
-        // 종인
+    public void notNullCheckByJongin() {
         String lck = "LCK";
         assertThat(lck, notNullValue());
+    }
 
-        // 주호
+    // 주호
+    @Test
+    public void notNullCheckByJuho() {
         String NullTestByJuho = "Test";
         assertThat(NullTestByJuho, notNullValue());
+    }
 
-        // 명수
+    // 명수
+    @Test
+    public void notNullCheckByMyungsoo() {
         String nullTestByMyungsoo = "value";
         assertThat(nullTestByMyungsoo, notNullValue());
-
     }
 
     // 연호
@@ -139,22 +149,27 @@ public class ChampionTest {
     }
 
     //nullValue 활용한 테스트
+    // 종인
     @Test
-    public void givenStringWhenNullIsCorrect() {
-        // 종인
+    public void givenStringWhenNullIsCorrectByJongin() {
         String lck = null;
         assertThat(lck, nullValue());
         lck = "Hi";
         assertThat(lck, notNullValue());
+    }
 
-        // 주호
+    // 주호
+    @Test
+    public void givenStringWhenNullIsCorrectByJuho() {
         String NullTestByJuho = null;
         assertThat(NullTestByJuho, nullValue());
+    }
 
-        //명수
+    // 명수
+    @Test
+    public void givenStringWhenNullIsCorrectByMyungsoo() {
         String nullTestByMyungsoo = null;
         assertThat(nullTestByMyungsoo, nullValue());
-
     }
 
     // 연호
@@ -166,9 +181,9 @@ public class ChampionTest {
 
 
     //문자열 관련 테스트 anyOf, containsString, endWith
+    // 종인
     @Test
-    public void testForRelatedString() {
-        // 종인
+    public void testForRelatedStringByJongin() {
         String sampleString1 = "Player Focus";
         String sampleString2 = "Player point";
         String startString = "Player";
@@ -177,8 +192,11 @@ public class ChampionTest {
         assertThat(sampleString2, is(endsWith(endString)));
         assertThat(sampleString1, is(endsWith("Focus")));
         assertThat(sampleString2, is(containsString("yer p")));
+    }
 
-        // 주호
+    //주호
+    @Test
+    public void testForRelatedStringByJuho() {
         String Avengers1 = "Captain America";
         String Avengers2 = "Captain Iron Man";
         String startString2 = "Captain";
@@ -186,8 +204,11 @@ public class ChampionTest {
         assertThat(Avengers1, anyOf(startsWith(startString2), containsString(endString2)));
         assertThat(Avengers2, is(endsWith(endString2)));
         assertThat(Avengers1, is(endsWith("America")));
+    }
 
-        //명수
+    //명수
+    @Test
+    public void testForRelatedStringByMyungsoo() {
         String player1 = "Thierry Henry";
         String player2 = "Killian Mbappe";
         String startPlayerString1 = "Thierry";
@@ -196,7 +217,6 @@ public class ChampionTest {
         assertThat(player2, anyOf(startsWith(startPlayerString1), containsString(endPlayerString2)));
         assertThat(player1, is(startsWith(startPlayerString1)));
         assertThat(player2, is(endsWith(endPlayerString2)));
-
     }
 
     //연호
@@ -213,17 +233,23 @@ public class ChampionTest {
     }
 
     //부동소수점 범위 closeTo 테스트
+    // 종인
     @Test
-    public void testForFloatingPoint() {
-        // 종인
+    public void testForFloatingPointByJongin() {
         assertThat(3.14, closeTo(3, 0.2));
         assertThat(2.96, closeTo(3.14, 0.2));
+    }
 
-        // 주호
+    // 주호
+    @Test
+    public void testForFloatingPointByJuho() {
         assertThat(1.5, closeTo(2, 0.7));
         assertThat(-1.5, closeTo(-3, 2));
+    }
 
-        //명수
+    // 명수
+    @Test
+    public void testForFloatingPointByMyungsoo() {
         assertThat(7.18,closeTo(7,0.2));
         assertThat(1.22,closeTo(1,0.5));
     }
@@ -236,16 +262,22 @@ public class ChampionTest {
     }
 
     //anything 테스트
+    // 종인
     @Test
-    public void shouldNotErrorGetReference() {
-        // 종인
+    public void shouldNotErrorGetReferenceByJongin() {
         assertThat(championList.get(2), anything()); // 값만 가져올 수 있으면 무슨 값이든 상관 없다.
         assertThat(championList.get(2), anyOf(notNullValue()));
+    }
 
-        // 주호
+    // 주호
+    @Test
+    public void shouldNotErrorGetReferenceByJuho() {
         assertThat(championListByJuho.get(4), anything());
+    }
 
-        // 명수
+    // 명수
+    @Test
+    public void shouldNotErrorGetReferenceByMyungsoo() {
         assertThat(championListByMyungsoo.get(1),anything());
     }
 
@@ -257,23 +289,28 @@ public class ChampionTest {
     }
 
     //객체 크기 검증 테스트 hasSize
+    // 종인
     @Test
-    public void shouldChampionCountFive() {
-        // 종인
+    public void shouldChampionCountFiveByJongin() {
         assertTrue(championList.size() == 5);
         assertThat(championList.size(), is(5));
         assertThat(championList, hasSize(5));
+    }
 
-        // 주호
+    // 주호
+    @Test
+    public void shouldChampionCountFiveByJuho() {
         assertFalse(championList.size() == 4);
         assertThat(championList.size(), not(4));
         assertThat(championList, hasSize(5));
+    }
 
-        // 명수
+    // 명수
+    @Test
+    public void shouldChampionCountFiveByMyungsoo() {
         assertFalse(championListByMyungsoo.size()==3);
         assertThat(championListByMyungsoo.size(),not(3));
         assertThat(championListByMyungsoo,hasSize(5));
-
     }
 
     // 연호
@@ -285,32 +322,36 @@ public class ChampionTest {
     }
 
     //서폿 챔피언은 타릭이어야 한다라는 조건으로 테스트 코드 작성
+    // 종인
     @Test
-    public void shouldSupportChampionIsTaric() {
-        // 종인
+    public void shouldSupportChampionIsTaricByJongin() {
         Champion supportChamp = new Champion("타릭", "바텀");
         assertThat("타릭", is(supportChamp.getName()));
         assertThat("타릭", is(equalTo(supportChamp.getName())));
         assertThat("타릭", equalTo(supportChamp.getName()));
+    }
 
-        // 주호
+    // 주호
+    @Test
+    public void shouldSupportChampionIsBleachCrankByJuho() {
         Champion supportChampByJuho = new Champion("알리스타", "바텀");
         assertThat("알리스타", is(supportChampByJuho.getName()));
         assertThat("알리스타", is(equalTo(supportChampByJuho.getName())));
         assertThat("알리스타", equalTo(supportChampByJuho.getName()));
+    }
 
-        // 명수
+    // 명수
+    @Test
+    public void shouldSupportChampionIsBleachCrankByMyungsoo() {
         Champion supportChampByMyungsoo = new Champion("럭스","바텀");
         assertThat("럭스",is(supportChampByMyungsoo.getName()));
         assertThat("럭스",is(equalTo(supportChampByMyungsoo.getName())));
         assertThat("럭스",equalTo(supportChampByMyungsoo.getName()));
-
     }
 
     // 연호
     @Test
     public void shouldSupportChampionIsBleachCrankByYounho() {
-        // 명수
         Champion supportChampByYounho = new Champion("블리츠크랭크","바텀");
         assertThat("블리츠크랭크",is(supportChampByYounho.getName()));
         assertThat("블리츠크랭크",is(equalTo(supportChampByYounho.getName())));
@@ -318,17 +359,23 @@ public class ChampionTest {
     }
 
     //hasProperty 활용하여 속성이 포함되어 있는지 테스트
+    // 종인
     @Test
-    public void shouldHasPropertyPosition() {
-        // 종인
+    public void shouldHasPropertyPositionByJongin() {
         assertThat(championList.get(0), hasProperty("position"));
         assertThat(championList.get(0), hasProperty("position", equalTo("탑")));
+    }
 
-        // 주호
+    // 주호
+    @Test
+    public void shouldHasPropertyPositionByJuho() {
         assertThat(championListByJuho.get(4), hasProperty("position"));
         assertThat(championListByJuho.get(4), hasProperty("position", equalTo("바텀")));
+    }
 
-        // 명수
+    // 명수
+    @Test
+    public void shouldHasPropertyPositionByMyungsoo() {
         assertThat(championListByMyungsoo.get(2), hasProperty("position"));
         assertThat(championListByMyungsoo.get(2), hasProperty("position", equalTo("미드")));
     }
@@ -341,17 +388,23 @@ public class ChampionTest {
     }
 
     //hasToString 활용 테스트
+    // 종인
     @Test
-    public void shouldHaveSomeChampName() {
-        // 종인
+    public void shouldHaveSomeChampNameByJongin() {
         List<String> champListNames = Arrays.asList("루시안", "애쉬", "렉사이", "갈리오", "모르가느", "블라디미르");
         assertThat(champListNames.get(0), hasToString("루시안"));
+    }
 
-        // 주호
+    // 주호
+    @Test
+    public void shouldHaveSomeChampNameByJuho() {
         List<String> champListNamesByJuho = Arrays.asList("징크스", "케이틀린", "시비르", "카이사", "이즈리얼");
         assertThat(champListNamesByJuho.get(0), hasToString("징크스"));
+    }
 
-        // 명수
+    // 명수
+    @Test
+    public void shouldHaveSomeChampNameByMyungsoo() {
         List<String> champListNamesByMyungsoo = Arrays.asList("다이애나", "야스오", "갈리아", "나미", "갬플링크");
         assertThat(champListNamesByMyungsoo.get(3), hasToString("나미"));
     }
@@ -364,20 +417,25 @@ public class ChampionTest {
     }
 
     //property와 value가 같은지 테스트
+    // 종인
     @Test
-    public void shouldHaveSamePropertyAndValue() {
-        // 종인
+    public void shouldHaveSamePropertyAndValueByJongin() {
         List<String> championNames1 = Arrays.asList("루시안", "애쉬", "렉사이", "갈리오", "모르가나", "블라디미르");
         List<String> championNames2 = Arrays.asList("루시안", "애쉬");
         assertThat(championNames1, samePropertyValuesAs(championNames2));
-//        assertThat(championNames1, samePropertyValuesAs(championList));
+    }
 
-        //주호
+    // 주호
+    @Test
+    public void shouldHaveSamePropertyAndValueByJuho() {
         List<String> championNames1ByJuho = Arrays.asList("징크스", "케이틀린", "시비르", "카이사", "이즈리얼");
         List<String> championNames2ByJuho = Arrays.asList("징크스");
         assertThat(championNames1ByJuho, samePropertyValuesAs(championNames2ByJuho));
+    }
 
-        //명수
+    // 명수
+    @Test
+    public void shouldHaveSamePropertyAndValueByMyungsoo() {
         List<String> championNames1ByMyungsoo = Arrays.asList("다이애나", "야스오", "갈리아", "나미", "갬플링크");
         List<String> championNames2ByMyungsoo = Arrays.asList("갬플링크");
         assertThat(championNames1ByMyungsoo, samePropertyValuesAs(championNames2ByMyungsoo));
@@ -392,10 +450,9 @@ public class ChampionTest {
     }
 
     //탑 챔피언은 다리우스여야 한다라는 조건으로 테스트 코드 작성, stream 활용예
+    // 종인
     @Test
-    public void shouldTopChampionIsDarius() {
-
-        // 종인
+    public void shouldTopChampionIsDariusByJongin() {
         Optional<Champion> filterdChampion = championList.stream()
                 .filter(c -> c.getPosition().equals("탑"))
                 .findFirst();
@@ -403,9 +460,11 @@ public class ChampionTest {
         String champName = filterdChampion.get().getName();
         assertTrue(champName.equals("다리우스"));
         assertThat("다리우스", is(champName));
+    }
 
-
-        // 주호
+    // 주호
+    @Test
+    public void shoudTopChampionIsMundoByJuho() {
         Optional<Champion> filterdChampionByJuho = championListByJuho.stream()
                 .filter(c -> c.getPosition().equals("미드"))
                 .findFirst();
@@ -413,16 +472,17 @@ public class ChampionTest {
         String champNameByJuho = filterdChampionByJuho.get().getName();
         assertTrue(champNameByJuho.equals("조이"));
         assertThat("조이", is(champNameByJuho));
+    }
 
-        // 종인
+    // 명수
+    @Test
+    public void shoudTopChampionIsMundoByMyungsoo() {
         Optional<Champion> filterdChampionByMyungsoo = championListByMyungsoo.stream()
                 .filter(c -> c.getPosition().equals("탑"))
                 .findFirst();
-        System.out.println("Result: " + filterdChampion);
         String champNameByMyungsoo = filterdChampionByMyungsoo.get().getName();
         assertTrue(champNameByMyungsoo.equals("가렌"));
         assertThat("가렌", is(champNameByMyungsoo));
-
     }
 
     // 연호
